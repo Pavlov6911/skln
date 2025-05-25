@@ -1,0 +1,35 @@
+---
+import { useState } from 'react';
+
+const [messages, setMessages] = useState([
+  { role: 'assistant', content: 'Hello! How can I help you with your code today?' }
+]);
+const [input, setInput] = useState('');
+
+<div class="bg-gray-800 text-white h-full flex flex-col p-4">
+  <div class="flex-1 overflow-y-auto mb-4 space-y-4">
+    {messages.map((msg, i) => (
+      <div key={i} class={`p-3 rounded-lg ${msg.role === 'user' ? 'bg-blue-600 ml-auto' : 'bg-gray-700 mr-auto'}`}>
+        {msg.content}
+      </div>
+    ))}
+  </div>
+  <div class="flex gap-2">
+    <input
+      type="text"
+      value={input}
+      onChange={(e) => setInput(e.target.value)}
+      class="flex-1 bg-gray-700 text-white p-2 rounded"
+      placeholder="Type your message..."
+    />
+    <button
+      onClick={() => {
+        setMessages([...messages, { role: 'user', content: input }]);
+        setInput('');
+      }}
+      class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+    >
+      Send
+    </button>
+  </div>
+</div>

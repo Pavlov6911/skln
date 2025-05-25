@@ -1,0 +1,22 @@
+---
+import { useState } from 'react';
+
+const [files, setFiles] = useState([
+  { name: 'index.js', type: 'file' },
+  { name: 'styles.css', type: 'file' },
+  { name: 'components', type: 'folder', children: [
+    { name: 'Button.js', type: 'file' }
+  ]}
+]);
+
+<div class="bg-gray-900 text-white h-full p-4 overflow-y-auto">
+  <h2 class="text-lg font-bold mb-4">Files</h2>
+  <ul class="space-y-1">
+    {files.map((file, i) => (
+      <li key={i} class="pl-4">
+        {file.type === 'folder' ? '📁 ' : '📄 '}
+        {file.name}
+      </li>
+    ))}
+  </ul>
+</div>

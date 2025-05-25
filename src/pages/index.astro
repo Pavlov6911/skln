@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MonacoEditor from '../components/MonacoEditor.astro';
+import ChatPanel from '../components/ChatPanel.astro';
+import PreviewPanel from '../components/PreviewPanel.astro';
+import FileExplorer from '../components/FileExplorer.astro';
+import Split from 'react-split';
+
+const defaultCode = `// Welcome to Astro Builder x Mikoni
+// Start coding here...
+`;
+
+<Layout title="Astro Builder x Mikoni">
+  <div class="h-screen flex flex-col">
+    <header class="bg-gray-900 text-white p-4">
+      <h1 class="text-xl font-bold">Astro Builder x Mikoni</h1>
+    </header>
+    
+    <Split
+      className="flex-1"
+      sizes={[25, 50, 25]}
+      minSize={[200, 300, 200]}
+      expandToMin={false}
+      gutterSize={10}
+      gutterAlign="center"
+      snapOffset={30}
+      dragInterval={1}
+      direction="horizontal"
+    >
+      <FileExplorer />
+      <MonacoEditor initialValue={defaultCode} />
+      <ChatPanel />
+    </Split>
+    
+    <PreviewPanel />
+  </div>
+</Layout>

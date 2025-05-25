@@ -2,23 +2,32 @@
   "name": "astro-builder-mikoni",
   "version": "1.0.0",
   "private": true,
+  "sideEffects": false,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "remix dev --manual",
+    "build": "remix build",
+    "start": "remix-serve ./build/index.js",
+    "typecheck": "tsc"
   },
   "dependencies": {
-    "astro": "^4.15.11",
     "@monaco-editor/react": "^4.5.0",
+    "@remix-run/node": "^2.9.2",
+    "@remix-run/react": "^2.9.2",
+    "@remix-run/serve": "^2.9.2",
+    "@remix-run/vercel": "^2.9.2",
+    "isbot": "^4.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-split": "^2.0.14",
     "shadcn": "^0.0.0"
   },
   "devDependencies": {
+    "@remix-run/dev": "^2.9.2",
     "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0"
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
